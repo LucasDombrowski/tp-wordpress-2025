@@ -14,3 +14,6 @@ namespace Roots\Bedrock;
 if (is_blog_installed() && class_exists(Autoloader::class)) {
     new Autoloader();
 }
+
+// Include the Guest Room Plugin as a must use plugin
+require_once __DIR__ . '/guest-room-plugin/guest-room-plugin.php';

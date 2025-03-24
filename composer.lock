@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1b7e35b6c70ad786775b9930255a2dc6",
+    "content-hash": "1c9c234e69d0f62514ee2658adfe5ed6",
     "packages": [
         {
             "name": "composer/installers",
@@ -1175,6 +1175,24 @@
             },
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/advanced-custom-fields/"
+        },
+        {
+            "name": "wpackagist-plugin/radio-buttons-for-taxonomies",
+            "version": "2.4.7",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/radio-buttons-for-taxonomies/",
+                "reference": "tags/2.4.7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/radio-buttons-for-taxonomies.2.4.7.zip"
+            },
+            "require": {
+                "composer/installers": "^1.0 || ^2.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/radio-buttons-for-taxonomies/"
         },
         {
             "name": "wpackagist-theme/twentytwentyfive",
