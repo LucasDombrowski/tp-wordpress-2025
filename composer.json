@@ -40,7 +40,9 @@
     "roots/wordpress": "6.7.2",
     "roots/wp-config": "1.0.0",
     "roots/wp-password-bcrypt": "1.2.0",
-    "wpackagist-theme/twentytwentyfive": "^1.0"
+    "wpackagist-theme/twentytwentyfive": "^1.0",
+    "devgeniem/acf-codifier": "^1.41",
+    "wpackagist-plugin/advanced-custom-fields": "^6.3"
   },
   "require-dev": {
     "roave/security-advisories": "dev-latest",
@@ -58,7 +60,10 @@
   "prefer-stable": true,
   "extra": {
     "installer-paths": {
-      "web/app/mu-plugins/{$name}/": ["type:wordpress-muplugin"],
+      "web/app/mu-plugins/{$name}/": [
+        "type:wordpress-muplugin",
+        "wpackagist-plugin/advanced-custom-fields"
+      ],
       "web/app/plugins/{$name}/": ["type:wordpress-plugin"],
       "web/app/themes/{$name}/": ["type:wordpress-theme"]
     },
