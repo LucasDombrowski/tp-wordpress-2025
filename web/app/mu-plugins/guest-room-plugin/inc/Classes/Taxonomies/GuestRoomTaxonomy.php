@@ -34,7 +34,6 @@ class GuestRoomTaxonomy{
     /**
      * Registers the Guest Room Taxonomy for the Guest Room post type with every labels.
      */
-
     public function register(){
         $labels = [
             'name' => _x($this->plural_label, 'Taxonomy general name', self::TEXT_DOMAIN),

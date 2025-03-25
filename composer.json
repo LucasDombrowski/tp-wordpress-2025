@@ -43,7 +43,8 @@
     "wpackagist-theme/twentytwentyfive": "^1.0",
     "devgeniem/acf-codifier": "^1.41",
     "wpackagist-plugin/advanced-custom-fields": "^6.3",
-    "wpackagist-plugin/radio-buttons-for-taxonomies": "^2.4"
+    "wpackagist-plugin/radio-buttons-for-taxonomies": "^2.4",
+    "wpackagist-theme/hestia": "^3.2"
   },
   "require-dev": {
     "roave/security-advisories": "dev-latest",
@@ -76,7 +77,8 @@
   },
   "autoload": {
     "psr-4": {
-      "GuestRoomPlugin\\": "web/app/mu-plugins/guest-room-plugin/inc/"
+      "GuestRoomPlugin\\": "web/app/mu-plugins/guest-room-plugin/inc/",
+      "GuestRoomChild\\": "web/app/themes/guest-room-child/inc/"
     }
   }
 }
