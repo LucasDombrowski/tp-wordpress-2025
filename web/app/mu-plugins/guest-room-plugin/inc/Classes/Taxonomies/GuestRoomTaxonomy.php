@@ -9,10 +9,10 @@ namespace GuestRoomPlugin\Classes\Taxonomies;
 use GuestRoomPlugin\Enums\GuestRoomTexts;
 
 class GuestRoomTaxonomy{
-    private string $slug;
-    private string $singular_label;
-    private string $plural_label;
-    private bool $hierarchical;
+    public string $slug;
+    public string $singular_label;
+    public string $plural_label;
+    public bool $hierarchical;
     private const TEXT_DOMAIN = GuestRoomTexts::TEXT_DOMAIN->value;
     private const POST_TYPE = GuestRoomTexts::POST_TYPE_SLUG->value;
 
@@ -53,6 +53,7 @@ class GuestRoomTaxonomy{
             'hierarchical' => $this->hierarchical,
             'labels' => $labels,
             'show_ui' => true,
+            "show_in_rest" => true,
             'show_admin_column' => true,
             'query_var' => true,
             'rewrite' => ['slug' => $this->slug],

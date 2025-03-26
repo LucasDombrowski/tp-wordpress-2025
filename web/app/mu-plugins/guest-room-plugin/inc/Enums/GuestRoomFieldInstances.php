@@ -81,4 +81,8 @@ enum GuestRoomFieldInstances{
         }
         return $acf_codifier_class;
     }
+
+    public function value(int | null $post_id = null){
+        return get_field($this->key(), $post_id ?? false);
+    }
 }

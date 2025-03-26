@@ -1,59 +1,86 @@
 <?php
+
 /**
- * The main template file
+ * The template for displaying Archive pages.
  *
- * This is the most generic template file in a WordPress theme
- * and one of the two required files for a theme (the other being style.css).
- * It is used to display a page when nothing more specific matches a query.
- * e.g., it puts together the home page when no home.php file exists.
- *
- * Learn more: {@link https://codex.wordpress.org/Template_Hierarchy}
- *
- * @package Hestia
- * @since Hestia 1.0
- * @modified 1.1.30
+ * @package GeneratePress
  */
 
+if (! defined('ABSPATH')) {
+	exit; // Exit if accessed directly.
+}
+
 use GuestRoomChild\Classes\GuestRoomUtils;
-use GuestRoomPlugin\Classes\GuestRoom;
+use GuestRoomChild\Enums\GuestRoomChildTexts;
 
-get_header();
+get_header(); ?>
 
-$default         = hestia_get_blog_layout_default();
-$sidebar_layout  = apply_filters( 'hestia_sidebar_layout', get_theme_mod( 'hestia_blog_sidebar_layout', $default ) );
-$wrapper_classes = apply_filters( 'hestia_filter_archive_content_classes', 'col-md-8 archive-post-wrap' );
+<div <?php generate_do_attr('content', [
+			"class" => GuestRoomUtils::prefix_classes("content-area-archive") . " "
+		]); ?>>
+	<main <?php generate_do_attr('main', [
+				"class" => GuestRoomUtils::prefix_classes("main-archive") . " "
+			]); ?>>
+		<?php
+		/**
+		 * generate_before_main_content hook.
+		 *
+		 * @since 0.1
+		 */
 
-do_action( 'hestia_before_archive_content' );
+		do_action('generate_before_main_content');
 
-?>
+		if (generate_has_default_loop()) {
+			if (have_posts()) :
 
-<div class="<?php echo hestia_layout(); ?>">
-	<div class="hestia-blogs" data-layout="<?php echo esc_attr( $sidebar_layout ); ?>">
-		<div class="container">
-			<div class="row">
-				<?php
-				if ( $sidebar_layout === 'sidebar-left' ) {
-					get_sidebar();
-				}
-				?>
-				<div class="<?php echo esc_attr( $wrapper_classes ); ?>">
-					<?php
-					if ( have_posts() ) :
-						GuestRoomUtils::get_template_part('guest-room-grid');
-						do_action( 'hestia_before_pagination' );
-						the_posts_pagination();
-						do_action( 'hestia_after_pagination' );
-					else :
-							get_template_part( 'template-parts/content', 'none' );
-					endif;
-					?>
+		?>
+				<h1 class="<?= GuestRoomUtils::prefix_classes('archive-title') ?>">
+					<?= _e(GuestRoomChildTexts::PLURAL_LABEL->value, GuestRoomChildTexts::TEXT_DOMAIN->value) ?>
+				</h1>
+				<div class="<?= GuestRoomUtils::prefix_classes('archive-filters') ?>">
+					<?php GuestRoomUtils::get_template_part('guest-room-filters'); ?>
 				</div>
-			</div>
-		</div>
-        <aside>
-            <?php GuestRoomUtils::get_template_part('guest-room-filters'); ?>
-        </aside>
-	</div>
+		<?php
+
+				/**
+				 * generate_before_loop hook.
+				 *
+				 * @since 3.1.0
+				 */
+				do_action('generate_before_loop', 'archive');
+
+				GuestRoomUtils::get_template_part('guest-room-grid');
+
+				/**
+				 * generate_after_loop hook.
+				 *
+				 * @since 2.3
+				 */
+				do_action('generate_after_loop', 'archive');
+
+			else :
+
+				generate_do_template_part('none');
+
+			endif;
+		}
+
+		/**
+		 * generate_after_main_content hook.
+		 *
+		 * @since 0.1
+		 */
+		do_action('generate_after_main_content');
+		?>
+	</main>
 </div>
-	<?php
-	get_footer(); ?>
+
+<?php
+/**
+ * generate_after_primary_content_area hook.
+ *
+ * @since 2.0
+ */
+do_action('generate_after_primary_content_area');
+
+get_footer();

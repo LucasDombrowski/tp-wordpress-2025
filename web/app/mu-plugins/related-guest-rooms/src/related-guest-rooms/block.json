@@ -1,0 +1,35 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "create-block/related-guest-rooms",
+	"version": "0.1.0",
+	"title": "Related Guest Rooms",
+	"category": "widgets",
+	"icon": "smiley",
+	"description": "Example block scaffolded with Create Block tool.",
+	"example": {},
+	"keywords": ["guest", "room", "related", "taxonomy"],
+	"attributes": {
+		"numberOfRooms": {
+		  "type": "number",
+		  "default": 3
+		},
+		"orderBy": {
+		  "type": "string",
+		  "default": "date"
+		},
+		"taxonomy": {
+		  "type": "string",
+		  "default": ""
+		}
+	  },
+	"supports": {
+		"html": false
+	},
+	"textdomain": "related-guest-rooms",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"render": "file:./render.php",
+	"viewScript": "file:./view.js"
+}

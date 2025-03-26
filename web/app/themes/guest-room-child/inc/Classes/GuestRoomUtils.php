@@ -53,9 +53,9 @@ class GuestRoomUtils{
         wp_enqueue_script(self::prefix_text($handle));
     }
 
-    public static function get_template_part(string $slug, string $name = ''){
+    public static function get_template_part(string $slug, string $name = '', array $args = []){
         $template_dir = "template-parts";
-        get_template_part($template_dir."/".$slug, $name);
+        get_template_part($template_dir."/".$slug, $name, $args);
     }
 
     public static function prefix_classes(string $classes, array $ignore = []){

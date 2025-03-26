@@ -44,7 +44,9 @@
     "devgeniem/acf-codifier": "^1.41",
     "wpackagist-plugin/advanced-custom-fields": "^6.3",
     "wpackagist-plugin/radio-buttons-for-taxonomies": "^2.4",
-    "wpackagist-theme/hestia": "^3.2"
+    "wpackagist-plugin/font-awesome": "^5.0",
+    "wpackagist-plugin/query-monitor": "^3.17",
+    "wpackagist-theme/generatepress": "^3.5"
   },
   "require-dev": {
     "roave/security-advisories": "dev-latest",
@@ -64,7 +66,8 @@
     "installer-paths": {
       "web/app/mu-plugins/{$name}/": [
         "type:wordpress-muplugin",
-        "wpackagist-plugin/advanced-custom-fields"
+        "wpackagist-plugin/advanced-custom-fields",
+        "wpackagist-plugin/font-awesome"
       ],
       "web/app/plugins/{$name}/": ["type:wordpress-plugin"],
       "web/app/themes/{$name}/": ["type:wordpress-theme"]

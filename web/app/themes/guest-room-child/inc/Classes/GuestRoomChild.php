@@ -16,13 +16,12 @@ class GuestRoomChild{
 
     public function enqueue_styles(){
        $utils = new GuestRoomUtils(); 
-       $parent_style_tag = GuestRoomChildTexts::THEME_PREFIX->value . '-parent-style';
-       wp_register_style($parent_style_tag, GuestRoomUtils::parent_theme_uri() . '/style.css');
-       $utils->register_style('style', 'style.css', [$parent_style_tag]);
+       $utils->register_style('style', 'style.css', ["generate-style"]);
+       wp_dequeue_style("generate-child");
        $utils->enqueue_style('style');
     }
 
     public function register_styles(){
-        add_action('wp_enqueue_scripts', [$this, 'enqueue_styles']);
+        add_action('wp_enqueue_scripts', [$this, 'enqueue_styles'],100);
     }
 }

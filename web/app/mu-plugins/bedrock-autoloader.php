@@ -17,3 +17,6 @@ if (is_blog_installed() && class_exists(Autoloader::class)) {
 
 // Include the Guest Room Plugin as a must use plugin
 require_once __DIR__ . '/guest-room-plugin/guest-room-plugin.php';
+
+// Include the Related Guest Rooms Block Plugin as a must use plugin
+require_once __DIR__ . '/related-guest-rooms/related-guest-rooms.php';

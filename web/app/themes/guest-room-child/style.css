@@ -1,9 +1,304 @@
 /*
  Theme Name:   Guest Room Child
- Description:  A child theme for the Hestia theme to handle the Guest Rooms.
- Author:       Hestia
+ Description:  A child theme for the GeneratePress one to handle the Guest Rooms.
+ Author:       Lucas Doombrowski
  Author URI:   https://lucasdombrowski.com
- Template:     hestia
+ Template:     generatepress
  Version:      1.0.0
  Text Domain:  guest-room-child
 */
+
+:root{
+    --gr-white: #ffffff;
+    --gr-blue: #004183;
+}
+
+.gr-child-grid{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    padding-inline: 1rem;
+    gap: 2rem;
+}
+
+.gr-child-grid.gr-child-single{
+    padding-inline: 0;
+}
+
+.site-content .gr-child-content-area-archive, .site-content .gr-child-content-area-single{
+    width: 100%;
+}
+
+.site-content .gr-child-content-area-archive .gr-child-main-archive, .site-content .gr-child-content-area-single .gr-child-main-single{
+    margin: 0;
+}
+
+.gr-child-card-container{
+    display: flex;
+    color: inherit;
+    flex-direction: column;
+    background: var(--gr-white);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-decoration: none;
+    transition: transform 0.2s;
+    border-radius: 0.5rem;
+    overflow: hidden;
+}
+
+.gr-child-card-container:hover{
+    transform: scale(1.02);
+}
+
+.gr-child-card-content{
+    padding: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.gr-child-card-first-row{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    border-bottom: solid color-mix(in srgb, currentColor 25%, transparent 0%) 1px;
+    padding-bottom: 1rem;
+}
+
+.gr-child-card-image{
+    aspect-ratio: 5/3;
+    object-fit: cover;
+}s
+
+.gr-child-card-content{
+    flex-grow: 1;
+}
+
+.gr-child-card-title{
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin: 0;
+}
+
+.gr-child-card-tags{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    list-style: none;
+    font-size: 0.85rem;
+}
+
+.gr-child-card-tag{
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.gr-child-card-excerpt{
+    font-size: 0.875rem;
+    margin: 0;
+}
+
+.gr-child-card-second-row{
+    display: flex;
+    flex-direction: column;
+    align-self: flex-end;
+    align-items: flex-end;
+    padding: 1rem;
+}
+
+.gr-child-card-price{
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin: 0;
+}
+
+.gr-child-card-price-text{
+    font-size: 0.75rem;
+    margin: 0;
+    opacity: 0.75;
+}
+
+.gr-child-filters-field{
+    display: flex;
+    flex-direction: column;
+}
+
+.gr-child-filters-field-input{
+    background: var(--gr-white) !important;
+    border-radius: 0.5rem !important;
+    border: solid color-mix(in srgb, currentColor 25%, transparent 0%) 1px !important;
+}
+
+.gr-child-filters-field-input:focus{
+    border-color: var(--gr-blue) !important;
+}
+
+.gr-child-filters-fields{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.gr-child-archive-filters{
+    background: var(--gr-white);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 0.5rem;
+    padding: 1rem;
+    margin-inline: 1rem;
+    margin-bottom: 3rem;
+}
+
+.gr-child-filters-form{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.gr-child-filters-field{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.gr-child-archive-title{
+    text-align: center;
+    margin-block: 3rem;
+}
+
+.gr-child-single-content-container{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    width: 100%;
+    padding-inline: 1rem;
+}
+
+.gr-child-single-image{
+    aspect-ratio: 5/3;
+    width: 100%;
+    object-fit: cover;
+}
+
+.gr-child-single-title{
+    font-size: 2rem;
+    font-weight: bold;
+    margin: 0;
+}
+
+.gr-child-single-section-title{
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 0;
+}
+
+.gr-child-single-section-subtitle{
+    font-size: 1.25rem;
+    margin: 0;
+    margin-bottom: 2rem;
+}
+
+.gr-child-single-items-list{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-block: 0;
+}
+
+.gr-child-single-section-content{
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.gr-child-single-content{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.single-guest-room .grid-container{
+    max-width: 1500px;
+}
+
+@media screen and (min-width: 768px){
+    .gr-child-card-first-row{
+        flex-direction: row;
+        gap: 1rem;
+        padding-bottom: 0;
+    }
+
+    .gr-child-card-image{
+        width: 33%;
+    }
+
+    .gr-child-card-content{
+        padding-block: 1.25rem;
+        padding-right: 1rem;
+        flex-grow: 1;
+    }
+
+    .gr-child-filters-fields{
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .gr-child-filters-field-input[type="number"]{
+        width: 200px;
+    }
+
+    .gr-child-single-title{
+        font-size: 2.5rem;
+    }
+
+    .gr-child-single-section-title{
+        font-size: 2rem;
+    }
+
+    .gr-child-single-section-subtitle{
+        font-size: 1.5rem;
+    }
+
+    .gr-child-single-items-list{
+       font-size: 1.25rem;
+    }
+}
+
+@media screen and (min-width: 1024px){
+    .gr-child-card-title{
+        font-size: 1.5rem;
+    }
+
+    .gr-child-card-tags{
+        font-size: 1rem;
+        gap: 1.5rem;
+    }
+
+    .gr-child-card-excerpt{
+        font-size: 1rem;
+    }
+
+    .gr-child-card-price{
+        font-size: 1.5rem;
+    }
+
+    .gr-child-card-price-text{
+        font-size: 1rem;
+    }
+
+    .gr-child-card-button{
+        width: 100%;
+    }
+
+    .gr-child-single-content-container{
+       flex-direction: row;
+    }
+
+    .gr-child-single-image{
+        width: 45%;
+        height: fit-content;
+        position: sticky;
+        top: 4rem;
+    }
+}

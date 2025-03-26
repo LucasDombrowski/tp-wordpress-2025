@@ -40,6 +40,7 @@ class GuestRoomPostType{
                 'public' => true,
                 "menu_icon"=>"dashicons-admin-home",
                 'has_archive' => true,
+                "show_in_rest" => true,
                 'rewrite' => ['slug' => self::KEY],
                 'supports' => ['title', 'excerpt', 'editor', 'thumbnail'],
             ]

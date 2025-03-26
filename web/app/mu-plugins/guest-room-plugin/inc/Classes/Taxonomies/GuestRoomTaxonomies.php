@@ -39,4 +39,17 @@ class GuestRoomTaxonomies{
         }
     }
 
+    public static function get_post_terms(int $post_id, string $taxonomy_slug, string | null $separator = null): array | string{
+        $terms = get_the_terms($post_id, $taxonomy_slug);
+        if(!$terms){
+            return [];
+        }
+        if($separator){
+            return implode($separator, array_map(function($term){
+                return __($term->name, GuestRoomTexts::TEXT_DOMAIN->value);
+            }, $terms));
+        }
+        return $terms;
+    }
+
 }
