@@ -1,5 +1,8 @@
 <?php
 
+use GuestRoomPlugin\Classes\GuestRoomPostType;
+use GuestRoomPlugin\Enums\GuestRoomTexts;
+
 /**
  * The template for displaying Archive pages.
  *
@@ -60,7 +63,18 @@ get_header(); ?>
 
 			else :
 
-				generate_do_template_part('none');
+				?>
+				<div class="<?= GuestRoomUtils::prefix_classes('no-results') ?>">
+					<h2 class="<?= GuestRoomUtils::prefix_classes('no-results-title') ?>">
+						<?= _e("No results.", GuestRoomChildTexts::TEXT_DOMAIN->value) ?>
+					</h2>
+					<p class="<?= GuestRoomUtils::prefix_classes('no-results-text') ?>">
+						<?= _e("Sorry, no content is available at the moment. Please try again later.", GuestRoomChildTexts::TEXT_DOMAIN->value) ?>
+					</p>
+					<a href="<?=GuestRoomPostType::get_archive_page()?>">
+						<?= _e("View all rooms", GuestRoomChildTexts::TEXT_DOMAIN->value) ?>
+					</a>
+				<?php
 
 			endif;
 		}

@@ -22,4 +22,6 @@ enum GuestRoomTexts: string {
     case PRICE_RANGE_SLUG = 'price-range';
     case PRICE_RANGE_SINGULAR_LABEL = 'Price Range';
     case PRICE_RANGE_PLURAL_LABEL = 'Price Ranges';
+    case VIEWS_COUNT_SLUG = 'views-count';
+    case VIEWS_COUNT_LABEL = 'Views Count';
 }

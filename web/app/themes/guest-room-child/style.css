@@ -27,6 +27,7 @@
 
 .site-content .gr-child-content-area-archive, .site-content .gr-child-content-area-single{
     width: 100%;
+    margin-block: 3rem;
 }
 
 .site-content .gr-child-content-area-archive .gr-child-main-archive, .site-content .gr-child-content-area-single .gr-child-main-single{
@@ -164,7 +165,7 @@
 
 .gr-child-archive-title{
     text-align: center;
-    margin-block: 3rem;
+    margin-bottom: 3rem;
 }
 
 .gr-child-single-content-container{

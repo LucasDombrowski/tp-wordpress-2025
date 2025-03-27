@@ -7,8 +7,10 @@ The GuestRoomPostType class provides functionality for registering the Guest Roo
 namespace GuestRoomPlugin\Classes;
 
 use GuestRoomPlugin\Enums\GuestRoomTexts;
+use WP;
 
-class GuestRoomPostType{
+class GuestRoomPostType
+{
     private const KEY = GuestRoomTexts::POST_TYPE_SLUG->value;
     private const SINGULAR_LABEL = GuestRoomTexts::SINGULAR_LABEL->value;
     private const PLURAL_LABEL = GuestRoomTexts::PLURAL_LABEL->value;
@@ -17,7 +19,16 @@ class GuestRoomPostType{
     /**
      * Registers the Guest Room custom post type.
      */
-    public function register(){
+    public function register()
+    {
+        $this->register_post_type();
+        add_action('wp', [$this, 'add_to_views_count']);
+        add_filter('manage_' . self::KEY . '_posts_columns', [$this, 'admin_add_views_count_column']);
+        add_action('manage_' . self::KEY . '_posts_custom_column', [$this, 'admin_views_count_column_content'], 10, 2);
+    }
+
+    public function register_post_type()
+    {
         register_post_type(
             self::KEY,
             [
@@ -38,7 +49,7 @@ class GuestRoomPostType{
                     'not_found_in_trash' => __('No ' . self::PLURAL_LABEL . ' found in Trash.', self::TEXT_DOMAIN),
                 ],
                 'public' => true,
-                "menu_icon"=>"dashicons-admin-home",
+                "menu_icon" => "dashicons-admin-home",
                 'has_archive' => true,
                 "show_in_rest" => true,
                 'rewrite' => ['slug' => self::KEY],
@@ -50,7 +61,39 @@ class GuestRoomPostType{
     /**
      * Returns the URL of the Guest Room archive page.
      */
-    public function get_archive_page(){
+    public static function get_archive_page()
+    {
         return get_post_type_archive_link(self::KEY);
+    }
+
+    public function add_to_views_count(WP $wp)
+    {
+        if(is_singular(self::KEY)){
+            $views_count = $this->get_views_count(get_the_ID()) + 1;
+            $this->update_views_count(get_the_ID(), $views_count);
+        }
+    }
+
+    public function admin_add_views_count_column($columns)
+    {
+        $columns[GuestRoomTexts::VIEWS_COUNT_SLUG->value] = __('Views Count', self::TEXT_DOMAIN);
+        return $columns;
+    }
+
+    public function get_views_count(int $post_id): int
+    {
+        return (int)get_post_meta($post_id, GuestRoomTexts::VIEWS_COUNT_SLUG->value, true) ?? 0;
+    }
+
+    public function update_views_count(int $post_id, int $count)
+    {
+        update_post_meta($post_id, GuestRoomTexts::VIEWS_COUNT_SLUG->value, $count);
+    }
+
+    public function admin_views_count_column_content($column, $post_id)
+    {
+        if ($column === GuestRoomTexts::VIEWS_COUNT_SLUG->value) {
+            echo $this->get_views_count($post_id);
+        }
     }
 }

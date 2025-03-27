@@ -8,7 +8,7 @@ return array(
 		'version' => '0.1.0',
 		'title' => 'Related Guest Rooms',
 		'category' => 'widgets',
-		'icon' => 'smiley',
+		'icon' => 'admin-page',
 		'description' => 'Example block scaffolded with Create Block tool.',
 		'example' => array(
 			

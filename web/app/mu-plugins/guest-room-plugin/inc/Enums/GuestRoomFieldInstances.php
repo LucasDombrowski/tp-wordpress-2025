@@ -72,10 +72,13 @@ enum GuestRoomFieldInstances{
         if(!$acf_codifier_class){
             return null;
         }
-        $acf_codifier_class->set_required($this->is_required());
+        if($this->is_required()){
+            $acf_codifier_class->set_required();
+        }
         $acf_codifier_class->set_placeholder($this->placeholder());
         switch($this){
-            case self::BEDS_COUNT || self::PRICE:
+            case self::BEDS_COUNT:
+            case self::PRICE:
                 $acf_codifier_class->set_min(1);
                 break;
         }
