@@ -42,7 +42,7 @@ class GuestRoomFiltersField{
         $name = $meta_query->query_key;
         $value = $meta_query->get_value();
         ?>
-        <input type="number" name="<?=$name?>" id="<?=$name?>" value="<?=$value?>" class="<?=$this->input_class?>">
+        <input type="number" name="<?=$name?>" id="<?=$name?>" value="<?=$value?>" class="<?=$this->input_class?>" min="1">
         <?php
     }
 }

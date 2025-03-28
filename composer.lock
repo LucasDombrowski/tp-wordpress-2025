@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c038f2f56b7cf175702b669328da96e8",
+    "content-hash": "66e36563f850460cf0bef48d74862d00",
     "packages": [
         {
             "name": "composer/installers",
@@ -1177,6 +1177,24 @@
             "homepage": "https://wordpress.org/plugins/advanced-custom-fields/"
         },
         {
+            "name": "wpackagist-plugin/all-in-one-wp-migration",
+            "version": "7.91",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/all-in-one-wp-migration/",
+                "reference": "tags/7.91"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/all-in-one-wp-migration.7.91.zip"
+            },
+            "require": {
+                "composer/installers": "^1.0 || ^2.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/all-in-one-wp-migration/"
+        },
+        {
             "name": "wpackagist-plugin/font-awesome",
             "version": "5.0.1",
             "source": {
@@ -1340,12 +1358,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Roave/SecurityAdvisories.git",
-                "reference": "497afc97765c92fa7265e3d33bce240b33e4e6f2"
+                "reference": "ea5e66cfcb7a8a5b915924fd8eca542397d6f324"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/497afc97765c92fa7265e3d33bce240b33e4e6f2",
-                "reference": "497afc97765c92fa7265e3d33bce240b33e4e6f2",
+                "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/ea5e66cfcb7a8a5b915924fd8eca542397d6f324",
+                "reference": "ea5e66cfcb7a8a5b915924fd8eca542397d6f324",
                 "shasum": ""
             },
             "conflict": {
@@ -1848,7 +1866,7 @@
                 "pimcore/ecommerce-framework-bundle": "<1.0.10",
                 "pimcore/perspective-editor": "<1.5.1",
                 "pimcore/pimcore": "<11.5.4",
-                "pixelfed/pixelfed": "<0.11.11",
+                "pixelfed/pixelfed": "<0.12.5",
                 "plotly/plotly.js": "<2.25.2",
                 "pocketmine/bedrock-protocol": "<8.0.2",
                 "pocketmine/pocketmine-mp": "<5.25.2",
@@ -2212,7 +2230,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2025-03-24T22:04:54+00:00"
+            "time": "2025-03-26T15:05:37+00:00"
         }
     ],
     "aliases": [],
@@ -2225,6 +2243,6 @@
     "platform": {
         "php": ">=8.1"
     },
-    "platform-dev": [],
+    "platform-dev": {},
     "plugin-api-version": "2.6.0"
 }

@@ -46,7 +46,8 @@
     "wpackagist-plugin/radio-buttons-for-taxonomies": "^2.4",
     "wpackagist-plugin/font-awesome": "^5.0",
     "wpackagist-plugin/query-monitor": "^3.17",
-    "wpackagist-theme/generatepress": "^3.5"
+    "wpackagist-theme/generatepress": "^3.5",
+    "wpackagist-plugin/all-in-one-wp-migration": "^7.91"
   },
   "require-dev": {
     "roave/security-advisories": "dev-latest",

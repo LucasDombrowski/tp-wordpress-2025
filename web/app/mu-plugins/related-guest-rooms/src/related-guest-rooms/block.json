@@ -6,7 +6,7 @@
 	"title": "Related Guest Rooms",
 	"category": "widgets",
 	"icon": "admin-page",
-	"description": "Example block scaffolded with Create Block tool.",
+	"description": "A Gutemberg block to display the guest rooms with the same selected taxonomy terms.",
 	"example": {},
 	"keywords": ["guest", "room", "related", "taxonomy"],
 	"attributes": {
